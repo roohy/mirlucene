@@ -23,6 +23,15 @@ private IndexWriter indexWriter;
 	boolean stopWord;
 	boolean stem;
 	
+	public Indexer(String indexDir , boolean mytype)throws Exception{
+		
+		Directory dir = FSDirectory.open(new File(indexDir));
+		StandardAnalyzer standardAnalyzer = new StandardAnalyzer(Version.LUCENE_30);
+		indexWriter = new IndexWriter(dir, standardAnalyzer,
+				true,
+				IndexWriter.MaxFieldLength.UNLIMITED);
+	}
+	
 	public Indexer(String indexDir,boolean stopWord,boolean stem) throws IOException{
 		
 		//getting the categor to open

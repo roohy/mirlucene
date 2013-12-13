@@ -27,7 +27,11 @@ public class EntryPoint {
 		 String json = readFile("/home/roohy/Documents/MIR-2/PA2_code_v1/json_data/sample.json", Charset.defaultCharset());
 		 
 		 searchEngine.addOrUpdateDocuments(json);
-		 searchEngine.searchFor(new SearchQuery(true, 1, "", "diff", null, null, null));
+		 SearchQuery testquery = new SearchQuery(true,
+				 null, null, "main database system",null, null, null);
+		 testquery.fromDate = 1386837481;
+		 testquery.toDate = 1386837481;
+		 searchEngine.searchFor(testquery);
 		// SearchResult s1 = searchEngine.searchFor(someQuery);
 		// searchEngine.addOrUpdateDocuments("Another JSON-formatted document collection");
 		// SearchResult s2 = searchEngine.searchFor(anotherQuery);

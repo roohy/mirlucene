@@ -46,7 +46,7 @@ public class MyStackExchangeAdvancedSearchImpl implements StackExchangeAdvancedS
 		// TODO Auto-generated method stub
 		try{
 //			System.out.println("searching for "+query.getQ());
-			Searcher.search(indexDir, query.getQ());
+			Searcher.search(indexDir, query);
 //			System.out.println("haha directory for  search "+indexDir);
 		}catch(Exception e){
 			e.printStackTrace();
