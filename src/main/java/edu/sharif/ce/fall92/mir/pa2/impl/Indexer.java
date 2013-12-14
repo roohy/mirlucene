@@ -115,7 +115,26 @@ private IndexWriter indexWriter;
 				Field.Store.YES,Field.Index.NOT_ANALYZED));
 		result.add(new Field("creation_date",item.creation_date,
 				Field.Store.YES,Field.Index.NOT_ANALYZED));
+		result.add(new Field("is_answered",String.valueOf(item.is_answered),
+				Field.Store.YES, Field.Index.ANALYZED));
+		result.add(new Field("tags",getStringTag(item),
+				Field.Store.YES, Field.Index.ANALYZED));
+		result.add(new Field("score",((Integer)item.score).toString(),
+				Field.Store.YES, Field.Index.ANALYZED));
+		result.add(new Field("views", ((Integer)item.view_count).toString(),
+				Field.Store.YES, Field.Index.ANALYZED));
+		
+		
 		return result;
+	}
+	
+	
+	private String getStringTag(Item input){
+		String output = "";
+		for( String st: input.tags){
+			output += " "+st;
+		}
+		return output;
 	}
 	private void indexFile(File f)throws Exception{
 		System.out.println("Index "+f.getCanonicalPath());

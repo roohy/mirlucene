@@ -18,7 +18,7 @@ public class MyStackExchangeAdvancedSearchImpl implements StackExchangeAdvancedS
 		params = initParams;
 		try{
 			if(params == null){
-				indexer = new Indexer(indexDir,false,false);
+				indexer = new Indexer(indexDir,true);
 			}
 			else{
 				indexer = new Indexer(indexDir,params.getRemoveStopwords(),

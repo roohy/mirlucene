@@ -21,14 +21,14 @@ public class EntryPoint {
 		// it for your own experimentation only.
 
 		 StackExchangeAdvancedSearchInterface searchEngine = new MyStackExchangeAdvancedSearchImpl();
-		 InitializationParameters initParams = new InitializationParameters(false, false);
-		 searchEngine.init(initParams);
+//		 InitializationParameters initParams = new InitializationParameters(false, false);
+		 searchEngine.init(null);
 		//
-		 String json = readFile("/home/roohy/Documents/MIR-2/PA2_code_v1/json_data/sample.json", Charset.defaultCharset());
+		 String json = readFile("/home/roohy/Documents/MIR-2/PA2_code_v1/json_data/sample2.json", Charset.defaultCharset());
 		 
 		 searchEngine.addOrUpdateDocuments(json);
-		 SearchQuery testquery = new SearchQuery(true,
-				 null, null, "main database system",null, null, null);
+		 SearchQuery testquery = new SearchQuery(null,
+				 null, null, "garbage",null, null, null);
 		 testquery.fromDate = 1386837481;
 		 testquery.toDate = 1386837481;
 		 searchEngine.searchFor(testquery);
